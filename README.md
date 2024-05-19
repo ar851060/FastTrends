@@ -1,6 +1,6 @@
 # Fast Trends
 
-這個專案是製作於由digitimes以及AWS在2024/05/18-19合辦的【雲湧智生-台灣生成式AI應用黑客松競賽】中的成品。    
+這個專案是製作於由digitimes以及AWS在2024/05/18-19合辦的【[雲湧智生-台灣生成式AI應用黑客松競賽](https://www.digitimes.com.tw/seminar/Hackathon_20240518/)】中的成品。    
 
 This project is made in the hackathon held by digitimes and AWS, the infomation of this competition is in this [website](https://www.digitimes.com.tw/seminar/Hackathon_20240518/).
 
