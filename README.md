@@ -23,15 +23,19 @@ We will collect the top 100 most relevant and popular news in Google News recent
 ## How to use it
 
 分成兩個部分：    
-There are two parts in this project:
+There are two parts to this project:
 
 1. Stock Trends Dashboards
 
+   ![Stock Trends Dashboards](https://github.com/ar851060/FastTrends/blob/main/report/P03.png)
+   
    這部分主要是關注重要的投資標的，定期更新資料，呈現出目前的趨勢、一小時的變化、以及目前股價價格並且呈現2個小時內的趨勢。同時也顯示出近期新聞的重點摘要。
    
    This part mainly focuses on important investment targets, regularly updates the information, shows the current trend, one-hour changes, and the current stock price, and shows the trend within 2 hours. It also displays a summary of recent news.
    
-2. Fast Trends
+3. Fast Trends
+
+   ![Fast Trends](https://github.com/ar851060/FastTrends/blob/main/report/P05.png)
 
    搜尋某投資標的，可以快速得到該標的的近期新聞的重點摘要。
 
