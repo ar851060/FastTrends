@@ -2,7 +2,7 @@
 
 這個專案是製作於由digitimes以及AWS在2024/05/18-19合辦的【[雲湧智生-台灣生成式AI應用黑客松競賽](https://www.digitimes.com.tw/seminar/Hackathon_20240518/)】中的成品。    
 
-This project is made in the hackathon held by digitimes and AWS, the infomation of this competition is in this [website](https://www.digitimes.com.tw/seminar/Hackathon_20240518/).
+This project was made in the AI Wave: Taiwan Generative AI Applications Hackathon held by Digitimes and AWS, the information on this competition is on this [website](https://www.digitimes.com.tw/seminar/Hackathon_20240518/).
 
 ## Core value
 
@@ -45,12 +45,12 @@ There are two parts to this project:
 
 我們在這個專案使用了以下AWS服務： Amplify, API Gateway, Lambda, IAM, EventBridge, Bedrock, DynamoDB
 
-The services we used in this proejct are: Amplify, API Gateway, Lambda, IAM, EventBridge, Bedrock, DynamoDB
+The services we used in this project are: Amplify, API Gateway, Lambda, IAM, EventBridge, Bedrock, DynamoDB
 
 * Amplify 作為我們的網頁前端。 Amplify serves as the frontend of our service
 * API Gateway 作為Lambda以及Amplify的連結。 API Gateway serves as the connection between Lambda and Amplify.
 * Lambda 作為核心演算法的處理器。 Lambda serves as the core algorithm running place.
-* IAM 作為各項AWS服務的權限控制。 IAM serves as the permission control for all kinds of service in AWS.
+* IAM 作為各項AWS服務的權限控制。 IAM serves as the permission control for all kinds of services in AWS.
 * EventBridge 作為定時觸發lambda爬蟲的機制。 EventBridge serves as the regular timer trigger for Lambda.
 * Bedrock 作為AI模型服務平台，這次的專案我們使用Claude 3 Sonnet。 Bedrock serves as a platform providing AI service, we use Claude 3 Sonnet in this project.
 * DynamoDB 作為資料庫存取計算過後以及爬蟲下來的資訊儲存處。 DynamoDB serves as a database to access the information stored after calculation and crawling.
