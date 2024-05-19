@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<title>Stock Trends</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="./Logo.png">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    h1 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+    }
+
+    h3 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: #FFFFFF;
+    }
+
+    h4 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        color: #FFFFFF;
+    }
+
+    p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        color: #FFFFFF;
+    }
+</style>
+
+<body style="background-color: #6569E4;">
+    <div class="w3-card-4 w3-round-xxlarge"
+        style="background-color: #090F24; margin-left: 10%; margin-right: 10%; margin-top: 60px; margin-bottom: 60px;">
+        <header class="w3-container w3-center">
+            <h3 style="margin-top: 30px; margin-bottom: 20px;"><i class="fa fa-line-chart w3-xlarge"
+                    style="color: #FFFFFF; margin-right: 10px"></i>Stock Trends</h3>
+        </header>
+        <div class="w3-row-padding" style="margin-left: 10px; margin-right: 10px;">
+            <div class="w3-col l4">
+                <div class="w3-card-4 w3-round-xlarge" style="background-color: #121933; margin: 10px;">
+                    <div class="w3-container w3-center">
+                        <h4 style="color: #FFFFFF;">TSMC Trends</h4>
+                    </div>
+                    <div class="w3-container w3-center">
+                        <h1 style="color: #D65D64;" id="Point">Loading...</h1>
+                    </div>
+                    <div class="w3-container w3-center">
+                        <h4 style="color: #FFFFFF;">One Hour %</h4>
+                    </div>
+                    <div class="w3-container w3-center">
+                        <h1 style="color: #D65D64;" id="Percentage">Loading...</h1>
+                    </div>
+                    <div class="w3-container w3-center">
+                        <h4 style="color: #FFFFFF;">Price (TWD)</h4>
+                    </div>
+                    <div class="w3-container w3-center">
+                        <h1 style="color: #55B674;" id="Sprice">Loading...</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l8">
+                <div class="w3-card-4 w3-round-xlarge" style="background-color: #121933; margin: 10px;">
+                    <div class="w3-container w3-center">
+                        <h4 style="color: #FFFFFF;">Trends Chart</h4>
+                        <div class="w3-container w3-center" style="margin-top: 10px; margin-bottom: 10px;">
+                            <canvas id="C"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w3-container" style="margin-left: 10px; margin-right: 10px;">
+            <div class="w3-card-4 w3-round-xlarge" style="background-color: #121933; margin: 10px;">
+                <div class="w3-container w3-center">
+                    <h4 style="color: #FFFFFF;">Summary</h4>
+                </div>
+                <div class="w3-container">
+                    <p id="Summary">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <header class="w3-container w3-center">
+            <h3 style="margin-top: 30px; margin-bottom: 20px;"><i class="fa fa-search w3-xlarge"
+                    style="color: #FFFFFF; margin-right: 10px"></i>Fast Trends</h3>
+        </header>
+        <div class="w3-row-padding" style="margin-left: 10px; margin-right: 10px;">
+            <div class="w3-col l4">
+                <div class="w3-card-4 w3-round-xlarge" style="background-color: #121933; margin: 10px;">
+                    <div class="w3-container w3-center">
+                        <h4 style="color: #FFFFFF;">Get Trends About?</h4>
+                    </div>
+                    <div class="w3-container w3-center">
+                        <input class="w3-input w3-border w3-round-large" id="Input" type="text">
+                    </div>
+                    <div class="w3-container w3-center">
+                        <button class="w3-button w3-block w3-round-xxlarge"
+                            style="margin-top: 20px; margin-bottom: 20px; background-color: #6569E4; color: #FFFFFF"
+                            onclick="fastSearch()">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l8">
+                <div class="w3-card-4 w3-round-xlarge" style="background-color: #121933; margin: 10px;">
+                    <div class="w3-container w3-center">
+                        <h4 style="color: #FFFFFF;">Fast Summary</h4>
+                    </div>
+                    <div class="w3-container">
+                        <p id="fSummary">Search Trends You Would Like to Know.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w3-container w3-center">
+            <p style="color: #FFFFFF; margin-top: 20px; margin-bottom: 30px;">Designed with ♥ by 不行了先睡了</p>
+            </divv>
+        </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const screen_width = window.screen.width;
+    const screen_height = window.screen.height;
+    let chart_ratio = screen_width / screen_height;
+    if (chart_ratio > 1) {
+        chart_ratio = chart_ratio - 0.2;
+    }
+    else {
+        chart_ratio = chart_ratio + 0.2;
+    }
+    Chart.defaults.color = "#FFFFFF";
+    Chart.defaults.borderColor = "#333333";
+    Chart.defaults.backgroundColor = "#74C1FA";
+    Chart.defaults.font.family = "Poppins";
+
+
+    const point_text = document.getElementById("Point");
+    const percentage_text = document.getElementById("Percentage");
+    const sprice_text = document.getElementById("Sprice");
+    const c = document.getElementById("C");
+    const summary_text = document.getElementById("Summary");
+    const input = document.getElementById("Input");
+    const fsummary_text = document.getElementById("fSummary");
+
+    function updateData() {
+        fetch("https://vnyn7zmqk4.execute-api.us-west-2.amazonaws.com/devV1", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                let point = data.body.point.toFixed(2);
+                let percentage = data.body.percentage.toFixed(2) + " %";
+                let sprice = data.body.sprice.toFixed(2);
+                let cpoint = data.body.cpoint;
+                let ctime = data.body.ctime;
+                let summary = data.body.summary;
+
+                point_text.textContent = point;
+                percentage_text.textContent = percentage;
+                sprice_text.textContent = sprice;
+                new Chart(c, {
+                    type: 'line',
+                    data: {
+                        labels: ctime,
+                        datasets: [{
+                            label: "Trends Point",
+                            data: cpoint,
+                            borderColor: "#74C1FA",
+                            tension: 0.1,
+                            borderWidth: 1,
+                            pointHitRadius: 20,
+                        }]
+                    },
+                    options: {
+                        aspectRatio: chart_ratio,
+                    }
+                });
+                summary_text.textContent = summary;
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
+    function fastSearch() {
+        fsummary_text.textContent = "Please Wait, This May Take a While...";
+        let raw = JSON.stringify({ "data": input.value });
+        fetch("https://zs8nvb2sa1.execute-api.us-west-2.amazonaws.com/devV1", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: raw
+        })
+            .then(response => response.json())
+            .then(data => {
+                let summary = data.body.summary;
+                fsummary_text.textContent = summary;
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
+
+    function updateWeb() {
+        updateData();
+    }
+
+    updateWeb();
+    setInterval(updateWeb, 300000);
+</script>
+
+</html>
